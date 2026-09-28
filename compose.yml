@@ -1,0 +1,19 @@
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-beautify_slides}
+      POSTGRES_USER: ${POSTGRES_USER:-beautify}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-beautify}
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-beautify} -d ${POSTGRES_DB:-beautify_slides}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  postgres_data:
