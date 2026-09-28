@@ -1,4 +1,4 @@
-# Beautify Slides
+# Agentic PowerPoint Design Assistant
 
 A privacy-focused PowerPoint design-retrieval demo. It compares slide structure without placing raw textbox content in embeddings, then recommends visually compatible slides from a local reference library.
 
